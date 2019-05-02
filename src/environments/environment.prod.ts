@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  local: true,
+  apiGetEmployees: '/api/employee',
+  apiRegisterEmployee: '/api/employee'
 };

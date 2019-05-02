@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="header">
+    Create an Employee
+  </div>
+  <div class="employee-form">
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-field">
+        <input class="text-box" 
+            spellcheck="false" 
+            type="text" 
+            id="firstName" 
+            name="firstName"
+            [(ngModel)]="employee.firstName"
+            formControlName="firstName"
+            placeholder="First Name">
+      </div>
+
+      <div class="form-field">
+        <input class="text-box" 
+            spellcheck="false" 
+            type="text" 
+            id="lastName" 
+            name="lastName" 
+            [(ngModel)]="employee.lastName"
+            formControlName="lastName"
+            placeholder="Last Name">
+      </div>
+
+      <div class="form-field">
+        <select name="gender" id="gender" 
+          formControlName="gender" 
+          [(ngModel)]="employee.gender"
+          class="dropdown">
+            <option value="select" disabled>Select Gender</option>
+            <option *ngFor="let gender of genderValues" [value]="gender.value">
+              {{gender.name}}
+            </option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <mat-form-field class="mat-form-field">
+          <input matInput 
+            [matDatepicker]="picker" 
+            formControlName="dateOfBirth" 
+            [(ngModel)]="employee.dateOfBirth"
+            placeholder="Date of Birth">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="form-field">
+        <input class="text-box" 
+            spellcheck="false" 
+            type="text" 
+            id="department" 
+            name="department"
+            [(ngModel)]="employee.department"
+            formControlName="department"
+            placeholder="Department">
+      </div>
+
+      <div class="form-field">
+        <button type="submit" class="button-control" mat-button>Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
